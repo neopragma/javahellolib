@@ -13,11 +13,11 @@ Walk through a simple development exercise that demonstrates several general goo
 * Using Maven for Java projects
 * Separation of concerns
 * Using a version control system
+* Test-driving application code through microtests
 * Single branch strategy
 * Setting up continuous integration
 * Using an IDE
 * Packaging a reusable jar to be uploaded to a repository
-* Test-driving application code through microtests
 * Benefits of frequent commits
 
 Subsequent parts of the walkthrough:
@@ -414,9 +414,10 @@ nothing to commit, working directory clean
 
 This means we don't have to merge any changes from origin that someone else might have pushed while we were working. We're good to go.
 
-Let's push our changes.
+Let's commit and push our changes.
 
 ```shell  
+git commit -m "Basic Hello functionality"
 git push -u origin master
 ```
 
@@ -474,11 +475,11 @@ We've looked at several good development practices so far:
 * Using Maven for Java projects - _check_
 * Separation of concerns - _check_ 
 * Using a version control system - _check_
+* Test-driving application code through microtests - _check_
 * Single branch strategy - _check_
 * Setting up continuous integration - _check_
 * Using an IDE
 * Packaging a reusable jar to be uploaded to a repository
-* Test-driving application code through microtests
 * Benefits of frequent commits
 * Organizing an automated test suite
 
@@ -559,3 +560,22 @@ Now you can press Commit and Push in the lower right-hand area of the Git Stagin
 Now if you head back over to Travis CI in a browser, you'll see that the CI build was started in response to this push. So, the IDE seamlessly ties into the CI pipeline.
 
 Some people like to commit from inside the IDE because they feel the IDE provides an all-in-one development environment. Others find it simpler to keep a command line window open and to commit from there. It's a question of personal preference.
+
+## 11. Where do we stand?
+
+In this portion of the walkthrough, we've touched on a number of generally-accepted good practices for software development and delivery:
+
+* Using Maven for Java projects - _check_
+* Separation of concerns - _check_ 
+* Using a version control system - _check_
+* Test-driving application code through microtests - _check_
+* Single branch strategy - _check_
+* Setting up continuous integration - _check_
+* Using an IDE - _check_
+* Packaging a reusable jar to be uploaded to a repository - _check_
+* Benefits of frequent commits - _check_
+* Organizing an automated test suite - _check_
+
+Any of these topics could be greatly expanded. 
+
+In the next portion of the walkthrough, we'll develop a command-line wrapper for the "Hello, World!" functionality using Spring Boot, and we'll set up an automated deployment pipeline to push changes into production. 
