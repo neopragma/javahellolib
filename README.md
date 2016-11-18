@@ -169,7 +169,7 @@ If you're using a private Nexus instance in your company, find out about the gui
 
   <build>
     <plugins>
-    
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -183,7 +183,7 @@ If you're using a private Nexus instance in your company, find out about the gui
           </execution>
         </executions>
       </plugin>
-
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -197,10 +197,31 @@ If you're using a private Nexus instance in your company, find out about the gui
           </execution>
         </executions>
       </plugin>    
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
+      </plugin>    
     
     </plugins>
-  </build>  
-</project>
+  </build>    
+  
+  <pluginRepositories>
+      <pluginRepository>
+        <releases>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>Maven Plugin Repository</name>
+        <url>http://repo1.maven.org/maven2</url>
+      </pluginRepository>
+    </pluginRepositories>
+    
+  </project>
 ```
 
 ### 4.4. Creating the Maven directory structure
@@ -481,7 +502,6 @@ We've looked at several good development practices so far:
 * Using an IDE
 * Packaging a reusable jar to be uploaded to a repository
 * Benefits of frequent commits
-* Organizing an automated test suite
 
 ## 8. Using an Integrated Development Environment
 
@@ -561,7 +581,32 @@ Now if you head back over to Travis CI in a browser, you'll see that the CI buil
 
 Some people like to commit from inside the IDE because they feel the IDE provides an all-in-one development environment. Others find it simpler to keep a command line window open and to commit from there. It's a question of personal preference.
 
-## 11. Where do we stand?
+
+## 11. Generating our jar file
+
+We can produce a jar that other projects can use as a dependency by using the ```jar:jar``` goal:
+
+```shell
+mvn jar:jar
+```
+
+Because of the plugins we've declared in our POM, that goal produces these files:
+
+![jar:jar results](images/jar-jar-results.png "jar:jar results")
+
+All those jars aren't always needed, but they are required if you intend to upload your jar to Maven Central. In all likelihood, if your company has an internal Nexus instance they will want these jars, as well. 
+
+
+## 12. Installing our new jar to the local Maven repository
+
+We're not going to clutter Maven Central with "Hello, World!" jars produced by these little workshops and demonstrations, but we _will_ need to be able to use our shiny new jar as a dependency in the next couple of projects. Here's how we can install the jar locally, to the ```~/.m2/repository``` directory on our local system.
+
+```shell
+mvn install:install-file -Dfile=target/javahellolib-0.0.1-SNAPSHOT.jar 
+```
+
+
+## 13. Where do we stand?
 
 In this portion of the walkthrough, we've touched on a number of generally-accepted good practices for software development and delivery:
 
@@ -574,8 +619,7 @@ In this portion of the walkthrough, we've touched on a number of generally-accep
 * Using an IDE - _check_
 * Packaging a reusable jar to be uploaded to a repository - _check_
 * Benefits of frequent commits - _check_
-* Organizing an automated test suite - _check_
 
 Any of these topics could be greatly expanded. 
 
-In the next portion of the walkthrough, we'll develop a command-line wrapper for the "Hello, World!" functionality using Spring Boot, and we'll set up an automated deployment pipeline to push changes into production. 
+In the next portion of the walkthrough, we'll develop a command-line wrapper for the "Hello, World!" functionality using Spring Boot, and we'll set up an automated deployment pipeline to push changes into production. We'll also do more with the microtests, and write integration tests, too.
