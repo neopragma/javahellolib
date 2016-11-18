@@ -49,7 +49,6 @@
   <build>
     <plugins>
 
-<!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
@@ -63,7 +62,7 @@
           </execution>
         </executions>
       </plugin>
--->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -80,4 +79,19 @@
     
     </plugins>
   </build>  
-</project>
+  
+  
+  <pluginRepositories>
+      <pluginRepository>
+        <releases>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>Maven Plugin Repository</name>
+        <url>http://repo1.maven.org/maven2</url>
+      </pluginRepository>
+    </pluginRepositories>
+  </project>
