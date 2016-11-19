@@ -27,7 +27,7 @@ Subsequent parts of the walkthrough:
 * Setting up continuous deployment
 * Writing a standalone Java application suitable for cloud deployment
 * Writing a RESTful microservice in Java suitable for cloud deployment
-* Organizing an automated test suite
+* Separating _unit_ and _integration_ tests in Maven
 
 The facilitator is free to omit, add, and emphasize topics as appropriate for the audience, and to change the code, the sequence of presentation, or any other aspects of the walkthrough to suit his/her needs.
 
