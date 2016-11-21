@@ -33,7 +33,7 @@ The facilitator is free to omit, add, and emphasize topics as appropriate for th
 
 ## 2. Resources
 
-•	PowerPoint deck: tdd-ci-cd-walkthrough.pptx
+•	PowerPoint deck: continuous-delivery-technical.pptx
 
 ## 3. Overview
 
@@ -324,6 +324,7 @@ We're going to use ```JUnit``` as the automated testing framework for this exerc
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
     <version>4.12</version>
+    <scope>test</scope>
 </dependency>
 ```
 
