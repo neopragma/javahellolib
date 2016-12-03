@@ -3,7 +3,7 @@
 This project supports part 1 of a 3-part demonstration/walkthrough/dojo exercise. By the end of the series, you'll have a reusable jar containing the "Hello, World!" functionality, a standalone Java app, a RESTful microservice, and a working CI/CD pipeline.
 
 * Part 1 - javahellolib (You are here)
-* Part 2 - http://github.com/neopragma/javahellomain
+* Part 2 - http://github.com/neopragma/javahelloapp
 * Part 3 - http://github.com/neopragma/javahelloservice
 
 ## 1. Purpose and overview
